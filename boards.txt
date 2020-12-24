@@ -1,0 +1,220 @@
+menu.usb=USB Type
+menu.speed=CPU Speed
+menu.opt=Optimize
+menu.keys=Keyboard Layout
+
+quarto.name=Quarto
+quarto.upload.maximum_size=8388608
+quarto.upload.maximum_data_size=8388608
+quarto.upload.tool=bossac
+quarto.upload.protocol=halfkay
+quarto.build.board=Quarto
+quarto.build.core=imxrt
+quarto.build.mcu=imxrt1062
+quarto.build.variant=quarto
+quarto.build.warn_data_percentage=99
+quarto.build.toolchain=
+quarto.build.command.gcc=arm-none-eabi-gcc
+quarto.build.command.g++=arm-none-eabi-g++
+quarto.build.command.ar=arm-none-eabi-gcc-ar
+quarto.build.command.objcopy=arm-none-eabi-objcopy
+quarto.build.command.objdump=arm-none-eabi-objdump
+quarto.build.command.linker=arm-none-eabi-gcc
+quarto.build.command.size=arm-none-eabi-size
+quarto.build.flags.common=-g -Wall -ffunction-sections -fdata-sections -nostdlib
+quarto.build.flags.dep=-MMD
+quarto.build.flags.optimize=-Os
+quarto.build.flags.cpu=-mthumb -mcpu=cortex-m7 -mfloat-abi=hard -mfpu=fpv5-d16
+quarto.build.flags.defs=-D__IMXRT1062__ -DTEENSYDUINO=147
+quarto.build.flags.cpp=-std=gnu++14 -fno-exceptions -fpermissive -fno-rtti -fno-threadsafe-statics -felide-constructors -Wno-error=narrowing
+quarto.build.flags.c=
+quarto.build.flags.S=-x assembler-with-cpp
+quarto.build.flags.ld=-Wl,--gc-sections,--relax "-T{build.core.path}/imxrt1062.ld"
+quarto.build.flags.libs=-larm_cortexM7lfdp_math -larm_cortexM7lfsp_math -lm -lstdc++
+quarto.build.fcpu=528000000
+quarto.serial.restart_cmd=false
+quarto.menu.usb.serial=Serial
+quarto.menu.usb.serial.build.usbtype=USB_SERIAL
+
+quarto.menu.opt.o2std=Faster
+quarto.menu.opt.o2std.build.flags.optimize=-O2
+quarto.menu.opt.o2std.build.flags.ldspecs=
+
+quarto.menu.opt.o1std=Fast
+quarto.menu.opt.o1std.build.flags.optimize=-O1
+quarto.menu.opt.o1std.build.flags.ldspecs=
+
+quarto.menu.opt.o3std=Fastest
+quarto.menu.opt.o3std.build.flags.optimize=-O3
+quarto.menu.opt.o3std.build.flags.ldspecs=
+
+quarto.menu.opt.ogstd=Debug
+quarto.menu.opt.ogstd.build.flags.optimize=-Og
+quarto.menu.opt.ogstd.build.flags.ldspecs=
+
+quarto.menu.opt.osstd=Smallest Code
+quarto.menu.opt.osstd.build.flags.optimize=-Os --specs=nano.specs
+quarto.menu.opt.osstd.build.flags.ldspecs=
+
+quarto.menu.opt.osstd=No Optimization
+quarto.menu.opt.osstd.build.flags.optimize=-O0
+quarto.menu.opt.osstd.build.flags.ldspecs=
+
+
+quarto.menu.keys.en-us=US English
+quarto.menu.keys.en-us.build.keylayout=US_ENGLISH
+quarto.menu.keys.fr-ca=Canadian French
+quarto.menu.keys.fr-ca.build.keylayout=CANADIAN_FRENCH
+quarto.menu.keys.xx-ca=Canadian Multilingual
+quarto.menu.keys.xx-ca.build.keylayout=CANADIAN_MULTILINGUAL
+quarto.menu.keys.cz-cz=Czech
+quarto.menu.keys.cz-cz.build.keylayout=CZECH
+quarto.menu.keys.da-da=Danish
+quarto.menu.keys.da-da.build.keylayout=DANISH
+quarto.menu.keys.fi-fi=Finnish
+quarto.menu.keys.fi-fi.build.keylayout=FINNISH
+quarto.menu.keys.fr-fr=French
+quarto.menu.keys.fr-fr.build.keylayout=FRENCH
+quarto.menu.keys.fr-be=French Belgian
+quarto.menu.keys.fr-be.build.keylayout=FRENCH_BELGIAN
+quarto.menu.keys.fr-ch=French Swiss
+quarto.menu.keys.fr-ch.build.keylayout=FRENCH_SWISS
+quarto.menu.keys.de-de=German
+quarto.menu.keys.de-de.build.keylayout=GERMAN
+quarto.menu.keys.de-dm=German (Mac)
+quarto.menu.keys.de-dm.build.keylayout=GERMAN_MAC
+quarto.menu.keys.de-ch=German Swiss
+quarto.menu.keys.de-ch.build.keylayout=GERMAN_SWISS
+quarto.menu.keys.is-is=Icelandic
+quarto.menu.keys.is-is.build.keylayout=ICELANDIC
+quarto.menu.keys.en-ie=Irish
+quarto.menu.keys.en-ie.build.keylayout=IRISH
+quarto.menu.keys.it-it=Italian
+quarto.menu.keys.it-it.build.keylayout=ITALIAN
+quarto.menu.keys.no-no=Norwegian
+quarto.menu.keys.no-no.build.keylayout=NORWEGIAN
+quarto.menu.keys.pt-pt=Portuguese
+quarto.menu.keys.pt-pt.build.keylayout=PORTUGUESE
+quarto.menu.keys.pt-br=Portuguese Brazilian
+quarto.menu.keys.pt-br.build.keylayout=PORTUGUESE_BRAZILIAN
+quarto.menu.keys.rs-rs=Serbian (Latin Only)
+quarto.menu.keys.rs-rs.build.keylayout=SERBIAN_LATIN_ONLY
+quarto.menu.keys.es-es=Spanish
+quarto.menu.keys.es-es.build.keylayout=SPANISH
+quarto.menu.keys.es-mx=Spanish Latin America
+quarto.menu.keys.es-mx.build.keylayout=SPANISH_LATIN_AMERICA
+quarto.menu.keys.sv-se=Swedish
+quarto.menu.keys.sv-se.build.keylayout=SWEDISH
+quarto.menu.keys.tr-tr=Turkish (partial)
+quarto.menu.keys.tr-tr.build.keylayout=TURKISH
+quarto.menu.keys.en-gb=United Kingdom
+quarto.menu.keys.en-gb.build.keylayout=UNITED_KINGDOM
+quarto.menu.keys.usint=US International
+quarto.menu.keys.usint.build.keylayout=US_INTERNATIONAL
+
+teensy40.name=Teensy 4.0
+teensy40.upload.maximum_size=2031616
+teensy40.upload.maximum_data_size=1048576
+teensy40.upload.tool=bossac
+teensy40.upload.protocol=halfkay
+teensy40.build.board=teensy40
+teensy40.build.core=imxrt
+teensy40.build.mcu=imxrt1062
+teensy40.build.variant=teensy40
+teensy40.build.warn_data_percentage=99
+teensy40.build.toolchain=
+teensy40.build.command.gcc=arm-none-eabi-gcc
+teensy40.build.command.g++=arm-none-eabi-g++
+teensy40.build.command.ar=arm-none-eabi-gcc-ar
+teensy40.build.command.objcopy=arm-none-eabi-objcopy
+teensy40.build.command.objdump=arm-none-eabi-objdump
+teensy40.build.command.linker=arm-none-eabi-gcc
+teensy40.build.command.size=arm-none-eabi-size
+teensy40.build.flags.common=-g -Wall -ffunction-sections -fdata-sections -nostdlib
+teensy40.build.flags.dep=-MMD
+teensy40.build.flags.optimize=-Os
+teensy40.build.flags.cpu=-mthumb -mcpu=cortex-m7 -mfloat-abi=hard -mfpu=fpv5-d16
+teensy40.build.flags.defs=-D__IMXRT1062__ -DTEENSYDUINO=147
+teensy40.build.flags.cpp=-std=gnu++14 -fno-exceptions -fpermissive -fno-rtti -fno-threadsafe-statics -felide-constructors -Wno-error=narrowing
+teensy40.build.flags.c=
+teensy40.build.flags.S=-x assembler-with-cpp
+teensy40.build.flags.ld=-Wl,--gc-sections,--relax "-T{build.core.path}/imxrt1062.ld"
+teensy40.build.flags.libs=-larm_cortexM7lfdp_math -lm -lstdc++
+teensy40.build.fcpu=600000000
+teensy40.serial.restart_cmd=false
+teensy40.menu.usb.serial=Serial
+teensy40.menu.usb.serial.build.usbtype=USB_SERIAL
+
+teensy40.menu.opt.o2std=Faster
+teensy40.menu.opt.o2std.build.flags.optimize=-O2
+teensy40.menu.opt.o2std.build.flags.ldspecs=
+
+teensy40.menu.opt.o1std=Fast
+teensy40.menu.opt.o1std.build.flags.optimize=-O1
+teensy40.menu.opt.o1std.build.flags.ldspecs=
+
+teensy40.menu.opt.o3std=Fastest
+teensy40.menu.opt.o3std.build.flags.optimize=-O3
+teensy40.menu.opt.o3std.build.flags.ldspecs=
+
+teensy40.menu.opt.ogstd=Debug
+teensy40.menu.opt.ogstd.build.flags.optimize=-Og
+teensy40.menu.opt.ogstd.build.flags.ldspecs=
+
+teensy40.menu.opt.osstd=Smallest Code
+teensy40.menu.opt.osstd.build.flags.optimize=-Os --specs=nano.specs
+teensy40.menu.opt.osstd.build.flags.ldspecs=
+
+teensy40.menu.keys.en-us=US English
+teensy40.menu.keys.en-us.build.keylayout=US_ENGLISH
+teensy40.menu.keys.fr-ca=Canadian French
+teensy40.menu.keys.fr-ca.build.keylayout=CANADIAN_FRENCH
+teensy40.menu.keys.xx-ca=Canadian Multilingual
+teensy40.menu.keys.xx-ca.build.keylayout=CANADIAN_MULTILINGUAL
+teensy40.menu.keys.cz-cz=Czech
+teensy40.menu.keys.cz-cz.build.keylayout=CZECH
+teensy40.menu.keys.da-da=Danish
+teensy40.menu.keys.da-da.build.keylayout=DANISH
+teensy40.menu.keys.fi-fi=Finnish
+teensy40.menu.keys.fi-fi.build.keylayout=FINNISH
+teensy40.menu.keys.fr-fr=French
+teensy40.menu.keys.fr-fr.build.keylayout=FRENCH
+teensy40.menu.keys.fr-be=French Belgian
+teensy40.menu.keys.fr-be.build.keylayout=FRENCH_BELGIAN
+teensy40.menu.keys.fr-ch=French Swiss
+teensy40.menu.keys.fr-ch.build.keylayout=FRENCH_SWISS
+teensy40.menu.keys.de-de=German
+teensy40.menu.keys.de-de.build.keylayout=GERMAN
+teensy40.menu.keys.de-dm=German (Mac)
+teensy40.menu.keys.de-dm.build.keylayout=GERMAN_MAC
+teensy40.menu.keys.de-ch=German Swiss
+teensy40.menu.keys.de-ch.build.keylayout=GERMAN_SWISS
+teensy40.menu.keys.is-is=Icelandic
+teensy40.menu.keys.is-is.build.keylayout=ICELANDIC
+teensy40.menu.keys.en-ie=Irish
+teensy40.menu.keys.en-ie.build.keylayout=IRISH
+teensy40.menu.keys.it-it=Italian
+teensy40.menu.keys.it-it.build.keylayout=ITALIAN
+teensy40.menu.keys.no-no=Norwegian
+teensy40.menu.keys.no-no.build.keylayout=NORWEGIAN
+teensy40.menu.keys.pt-pt=Portuguese
+teensy40.menu.keys.pt-pt.build.keylayout=PORTUGUESE
+teensy40.menu.keys.pt-br=Portuguese Brazilian
+teensy40.menu.keys.pt-br.build.keylayout=PORTUGUESE_BRAZILIAN
+teensy40.menu.keys.rs-rs=Serbian (Latin Only)
+teensy40.menu.keys.rs-rs.build.keylayout=SERBIAN_LATIN_ONLY
+teensy40.menu.keys.es-es=Spanish
+teensy40.menu.keys.es-es.build.keylayout=SPANISH
+teensy40.menu.keys.es-mx=Spanish Latin America
+teensy40.menu.keys.es-mx.build.keylayout=SPANISH_LATIN_AMERICA
+teensy40.menu.keys.sv-se=Swedish
+teensy40.menu.keys.sv-se.build.keylayout=SWEDISH
+teensy40.menu.keys.tr-tr=Turkish (partial)
+teensy40.menu.keys.tr-tr.build.keylayout=TURKISH
+teensy40.menu.keys.en-gb=United Kingdom
+teensy40.menu.keys.en-gb.build.keylayout=UNITED_KINGDOM
+teensy40.menu.keys.usint=US International
+teensy40.menu.keys.usint.build.keylayout=US_INTERNATIONAL
+
+
+
