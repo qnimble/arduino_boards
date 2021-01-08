@@ -43,7 +43,7 @@ jobs:
           echo "Version is $VERSION"
           echo "VERSION=$VERSION" >>$GITHUB_ENV
           echo '::set-output name=VERSION::$VERSION'
-          tar -cvjf qNimble_iMXRT-$VERSION.tar.bz2 *
+          tar --transform "s,^,imxrt/,S" -cvjf qNimble_iMXRT-$VERSION.tar.bz2 *
           ls
           ls qN*
           
