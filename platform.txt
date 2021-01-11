@@ -1,5 +1,5 @@
 name=qNimble
-version=0.1.3
+version=0.1.4
 rewriting=disabled
 
 compiler.path={runtime.tools.arm-none-eabi-gcc.path}/bin/
@@ -19,7 +19,7 @@ tools.arduino-preprocessor.cmd.path={path}/arduino-preprocessor
 tools.arduino-preprocessor.pattern="{cmd.path}" "{source_file}" "{codecomplete}" -- -std=gnu++14
 
 ## Precompile Arduino.h header
-recipe.hooks.sketch.prebuild.1.pattern="{runtime.tools.precompile_helper.path}/precompile_helper-1.0" "{runtime.platform.path}/cores/{build.core}" "{build.path}" "{compiler.path}{build.toolchain}{build.command.g++}" -x c++-header {build.flags.optimize} {build.flags.common} {build.flags.dep} {build.flags.cpp} {build.flags.cpu} {build.flags.defs} -I{build.variant.path} -DARDUINO={runtime.ide.version} -DF_CPU={build.fcpu} -D{build.usbtype} -DLAYOUT_{build.keylayout} "-I{runtime.platform.path}/cores/{build.core}" "{build.path}/pch/Arduino.h" -o "{build.path}/pch/Arduino.h.gch"
+recipe.hooks.sketch.prebuild.1.pattern="{runtime.tools.precompile_helper.path}/precompile_helper" "{runtime.platform.path}/cores/{build.core}" "{build.path}" "{compiler.path}{build.toolchain}{build.command.g++}" -x c++-header {build.flags.optimize} {build.flags.common} {build.flags.dep} {build.flags.cpp} {build.flags.cpu} {build.flags.defs} -I{build.variant.path} -DARDUINO={runtime.ide.version} -DF_CPU={build.fcpu} -D{build.usbtype} -DLAYOUT_{build.keylayout} "-I{runtime.platform.path}/cores/{build.core}" "{build.path}/pch/Arduino.h" -o "{build.path}/pch/Arduino.h.gch"
 
 ## Compile c++ files
 recipe.cpp.o.pattern="{compiler.path}{build.toolchain}{build.command.g++}" -c {build.flags.optimize} {build.flags.common} {build.flags.dep} {build.flags.cpp} {build.flags.cpu} {build.flags.defs} -DARDUINO={runtime.ide.version} -DF_CPU={build.fcpu} -D{build.usbtype} -DLAYOUT_{build.keylayout} "-I{build.path}/pch" {includes} "{source_file}" -o "{object_file}"
@@ -66,17 +66,16 @@ recipe.size.regex.eeprom=^(?:\.eeprom)\s+([0-9]+).*
 #recipe.hooks.linking.postlink.2.pattern = echo Testing this is a size calc
 recipe.hooks.linking.postlink.3.pattern="{compiler.path}{build.toolchain}{build.command.size}" -A -x "{build.path}/{build.project_name}.elf"
 
-## Teensy Ports Discovery (Arduino 1.8.9 with pathPrefs patch)
-discovery.teensy.pattern="{runtime.hardware.path}/../tools/teensy_ports" -J2
+tools.qbossa.path={runtime.tools.qbossa.path}
+tools.qbossa.cmd=qbossac
+tools.qbossa.cmd.windows=qbossac.exe
+tools.qbossa.upload.params.verbose=-i -d
+tools.qbossa.upload.params.quiet=
+tools.qbossa.upload.pattern="{path}/{cmd}" --port={serial.port.file} -a -w -v "{build.path}/{build.project_name}.bin" -R
+#tools.qbossa.upload.pattern="{path}/{cmd}" --port={serial.port.file} -U upload.native_usb} -i -e -w -v "{build.path}/{build.project_name}.bin"
 
 ## Teensy Ports Discovery (Arduino 1.8.9)
 #discovery.teensy.pattern="{runtime.ide.path}/hardware/tools/teensy_ports" -J2
-
-## Teensy Loader
-tools.teensyloader.cmd.path={runtime.hardware.path}/../tools
-tools.teensyloader.upload.params.quiet=
-tools.teensyloader.upload.params.verbose=-verbose
-tools.teensyloader.upload.pattern="{cmd.path}/teensy_post_compile" "-file={build.project_name}" "-path={build.path}" "-tools={cmd.path}" "-board={build.board}" -reboot "-port={serial.port}" "-portlabel={serial.port.label}" "-portprotocol={serial.port.protocol}"
 
 ## Export hex
 recipe.output.tmp_file={build.project_name}.bin

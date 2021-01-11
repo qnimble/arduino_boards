@@ -6,7 +6,7 @@ menu.keys=Keyboard Layout
 quarto.name=Quarto
 quarto.upload.maximum_size=8388608
 quarto.upload.maximum_data_size=8388608
-quarto.upload.tool=qbossac
+quarto.upload.tool=qbossa
 quarto.upload.protocol=sam-ba
 quarto.upload.use_1200pbs_touch=true
 quarto.upload.native_usb=true
@@ -27,11 +27,11 @@ quarto.build.flags.common=-g -Wall -ffunction-sections -fdata-sections -nostdlib
 quarto.build.flags.dep=-MMD
 quarto.build.flags.optimize=-Os
 quarto.build.flags.cpu=-mthumb -mcpu=cortex-m7 -mfloat-abi=hard -mfpu=fpv5-d16
-quarto.build.flags.defs=-D__IMXRT1062__ -DTEENSYDUINO=147
+quarto.build.flags.defs=-D__IMXRT1062__ -DARDUINO_QUARTO
 quarto.build.flags.cpp=-std=gnu++14 -fno-exceptions -fpermissive -fno-rtti -fno-threadsafe-statics -felide-constructors -Wno-error=narrowing
 quarto.build.flags.c=
 quarto.build.flags.S=-x assembler-with-cpp
-quarto.build.flags.ld=-Wl,--gc-sections,--relax "-T{build.core.path}/imxrt1062.ld"
+quarto.build.flags.ld=-Wl,--gc-sections,--relax "-T{build.core.path}/imxrt1062_quarto.ld"
 quarto.build.flags.libs=-larm_cortexM7lfdp_math -larm_cortexM7lfsp_math -lm -lstdc++
 quarto.build.fcpu=528000000
 quarto.serial.restart_cmd=false
