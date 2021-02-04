@@ -1,3 +1,6 @@
 [submodule "cores"]
 	path = cores
 	url = https://github.com/qnimble/ArduinoCore-iMXRT.git
+[submodule "variants/quarto"]
+	path = variants/quarto
+	url = git@github.com:qnimble/quarto-lib.git

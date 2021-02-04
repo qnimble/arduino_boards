@@ -1,5 +1,5 @@
 name=qNimble
-version=0.1.4
+version=0.1.5
 rewriting=disabled
 
 compiler.path={runtime.tools.arm-none-eabi-gcc.path}/bin/
