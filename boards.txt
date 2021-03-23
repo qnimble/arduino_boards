@@ -27,14 +27,14 @@ quarto.build.command.linker=arm-none-eabi-gcc
 quarto.build.command.size=arm-none-eabi-size
 quarto.build.flags.common=-g -Wall -ffunction-sections -fdata-sections -nostdlib
 quarto.build.flags.dep=-MMD
-quarto.build.flags.optimize=-Os
+quarto.build.flags.optimize=-O2
 quarto.build.flags.cpu=-mthumb -mcpu=cortex-m7 -mfloat-abi=hard -mfpu=fpv5-d16
 quarto.build.flags.defs=-D__IMXRT1062__ -DARDUINO_QUARTO
 quarto.build.flags.cpp=-std=gnu++14 -fno-exceptions -fpermissive -fno-rtti -fno-threadsafe-statics -felide-constructors -Wno-error=narrowing
 quarto.build.flags.c=
 quarto.build.flags.S=-x assembler-with-cpp
 quarto.build.flags.ld=-Wl,--gc-sections,--relax "-T{build.core.path}/imxrt1062_quarto.ld"
-quarto.build.flags.libs=-larm_cortexM7lfdp_math -larm_cortexM7lfsp_math -lm -lstdc++
+quarto.build.flags.libs=-larm_cortexM7lfdp_math -larm_cortexM7lfsp_math -lm -lc_nano -lnosys
 quarto.build.fcpu=528000000
 quarto.build.usbtype=USB_SERIAL
 quarto.build.keylayout=US_ENGLISH
