@@ -33,7 +33,7 @@ quarto.build.flags.defs=-D__IMXRT1062__ -DARDUINO_QUARTO
 quarto.build.flags.cpp=-std=gnu++14 -fno-exceptions -fpermissive -fno-rtti -fno-threadsafe-statics -felide-constructors -Wno-error=narrowing
 quarto.build.flags.c=
 quarto.build.flags.S=-x assembler-with-cpp
-quarto.build.flags.ld=-Wl,--gc-sections,--relax "-T{build.core.path}/imxrt1062_quarto.ld"
+quarto.build.flags.ld=-Wl,--gc-sections,--relax "-T{build.core.path}/quarto_arduino.ld"
 quarto.build.flags.libs=-larm_cortexM7lfdp_math -larm_cortexM7lfsp_math -lm -lc_nano -lnosys
 quarto.build.fcpu=528000000
 quarto.build.usbtype=USB_SERIAL
