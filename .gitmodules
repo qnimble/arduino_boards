@@ -3,4 +3,7 @@
 	url = https://github.com/qnimble/ArduinoCore-iMXRT.git
 [submodule "variants/quarto"]
 	path = variants/quarto
-	url = git@github.com:qnimble/quarto-lib.git
+	url = https://github.com/qnimble/quarto-lib.git
+[submodule "libraries"]
+	path = libraries
+	url = https://github.com/qnimble/arduino-quarto-libraries.git
