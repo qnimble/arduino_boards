@@ -4,8 +4,8 @@ menu.opt=Optimize
 menu.keys=Keyboard Layout
 
 quarto.name=Quarto
-quarto.upload.maximum_size=8388608
-quarto.upload.maximum_data_size=8388608
+quarto.upload.maximum_size=7864320
+quarto.upload.maximum_data_size=524288
 quarto.upload.tool=qbossa
 quarto.upload.protocol=sam-ba
 quarto.upload.use_1200pbs_touch=true
