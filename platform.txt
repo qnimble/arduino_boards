@@ -1,5 +1,5 @@
 name=qNimble
-version=0.2.13
+version=0.2.14
 rewriting=disabled
 
 compiler.path={runtime.tools.arm-none-eabi-gcc.path}/bin/
@@ -58,8 +58,8 @@ recipe.objcopy.bin.pattern="{compiler.path}{build.toolchain}{build.command.objco
 
 ## Compute size
 recipe.size.pattern="{compiler.path}{build.toolchain}{build.command.size}" -A "{build.path}/{build.project_name}.elf"
-recipe.size.regex=^(?:\.fini|\.text|\.text\.progmem|\.text\.flash|\.text\.bootinfo|\.data|\.data_RAM[0-9]|\.boot_hdr\.[a-z_]+)\s+([0-9]+).*
-recipe.size.regex.data=^(?:\.fini|\.data_RAM2|\.data|\.bss|\.boot_hdr\.[a-z_]+|\.noinit|\.text\.itcm|\.data_RAM2\.padding)\s+([0-9]+).*
+recipe.size.regex=^(?:\.fini|\.text|\.text\.bootinfo|\.text\.flash|\.data|\.data\.[A-Za-z]+)\s+([0-9]+).*
+recipe.size.regex.data=^(?:\.fini|\.data\.DTCM|\.data\.ITCM|\.bss\.DTCM|\.data\.ITCM\.padding|\.bss\.ITCM)\s+([0-9]+).*
 recipe.size.regex.allmemory=^(?:\.fini|\.data_RAM[0-9]|\.dmabuffers|\.usbbuffers|\.data|\.bss|\.bss\.dma|\.boot_hdr\.[a-z_]+|\.noinit|\.text\.itcm)\s+([0-9]+).*
 recipe.size.regex.eeprom=^(?:\.eeprom)\s+([0-9]+).*
 
@@ -69,7 +69,10 @@ recipe.size.regex.eeprom=^(?:\.eeprom)\s+([0-9]+).*
 #recipe.hooks.linking.postlink.4.pattern.windows=cmd /c dir | cmd /c findstr resour
 
 #recipe.hooks.linking.postlink.2.pattern = echo Testing this is a size calc
-recipe.hooks.linking.postlink.3.pattern="{compiler.path}{build.toolchain}{build.command.size}" "{build.path}/{build.project_name}.elf" -A
+recipe.hooks.linking.postlink.1.pattern="{compiler.path}{build.toolchain}{build.command.size}" "{build.path}/{build.project_name}.elf" -A -x | grep -v "\.debug" | grep -v "\.stab" | grep -v "\.comment"
+#recipe.hooks.linking.postlink.1.pattern.windows=cmd /c "{compiler.path}{build.toolchain}\\bin\\arm-none-eabi-size.exe {build.path}/{build.project_name}.elf -A -x" | cmd /c findstr debug
+recipe.hooks.linking.postlink.1.pattern.windows=cmd /c "{compiler.path}{build.toolchain}{build.command.size} {build.path}/{build.project_name}.elf -A -x " 
+#| grep -v "\.stab" | grep -v "\.comment"
 
 tools.qbossa.path={runtime.tools.qbossa.path}
 tools.qbossa.cmd=qbossac
