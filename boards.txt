@@ -63,3 +63,65 @@ quarto.menu.opt.osstd.build.flags.ldspecs=
 quarto.menu.opt.osstd=No Optimization
 quarto.menu.opt.osstd.build.flags.optimize=-O0
 quarto.menu.opt.osstd.build.flags.ldspecs=
+
+
+quarto_prototype.name=Quarto Prototype
+quarto_prototype.upload.maximum_size=7864320
+quarto_prototype.upload.maximum_data_size=524288
+quarto_prototype.upload.tool=qbossa
+quarto_prototype.upload.protocol=sam-ba
+quarto_prototype.upload.use_1200pbs_touch=true
+quarto_prototype.upload.native_usb=true
+quarto_prototype.build.board=Quarto Prototype
+quarto_prototype.vid.0=0x1781
+quarto_prototype.pid.0=0x0941
+quarto_prototype.build.core=imxrt
+quarto_prototype.build.mcu=imxrt1062
+quarto_prototype.build.variant=quarto
+quarto_prototype.build.warn_data_percentage=99
+quarto_prototype.build.toolchain=
+quarto_prototype.build.command.gcc=arm-none-eabi-gcc
+quarto_prototype.build.command.g++=arm-none-eabi-g++
+quarto_prototype.build.command.ar=arm-none-eabi-gcc-ar
+quarto_prototype.build.command.objcopy=arm-none-eabi-objcopy
+quarto_prototype.build.command.objdump=arm-none-eabi-objdump
+quarto_prototype.build.command.linker=arm-none-eabi-gcc
+quarto_prototype.build.command.size=arm-none-eabi-size
+quarto_prototype.build.flags.common=-g -Wall -ffunction-sections -fdata-sections -nostdlib
+quarto_prototype.build.flags.dep=-MMD
+quarto_prototype.build.flags.optimize=-O2
+quarto_prototype.build.flags.cpu=-mthumb -mcpu=cortex-m7 -mfloat-abi=hard -mfpu=fpv5-d16
+quarto_prototype.build.flags.defs=-D__IMXRT1062__ -DARDUINO_QUARTO -DQUARTO_PROTOTYPE
+quarto_prototype.build.flags.cpp=-std=gnu++14 -fno-exceptions -fpermissive -fno-rtti -fno-threadsafe-statics -felide-constructors -Wno-error=narrowing
+quarto_prototype.build.flags.c=
+quarto_prototype.build.flags.S=-x assembler-with-cpp
+quarto_prototype.build.flags.ld=-Wl,--gc-sections,--relax "-T{build.core.path}/quarto_arduino.ld"
+quarto_prototype.build.flags.libs=-larm_cortexM7lfdp_math -larm_cortexM7lfsp_math -lm -lc_nano -lnosys -u _printf_float -u _scanf_float
+quarto_prototype.build.fcpu=528000000
+quarto_prototype.build.usbtype=USB_SERIAL
+quarto_prototype.build.keylayout=US_ENGLISH
+quarto_prototype.serial.restart_cmd=false
+
+quarto_prototype.menu.opt.o2std=Faster
+quarto_prototype.menu.opt.o2std.build.flags.optimize=-O2
+quarto_prototype.menu.opt.o2std.build.flags.ldspecs=
+
+quarto_prototype.menu.opt.o1std=Fast
+quarto_prototype.menu.opt.o1std.build.flags.optimize=-O1
+quarto_prototype.menu.opt.o1std.build.flags.ldspecs=
+
+quarto_prototype.menu.opt.o3std=Fastest
+quarto_prototype.menu.opt.o3std.build.flags.optimize=-O3
+quarto_prototype.menu.opt.o3std.build.flags.ldspecs=
+
+quarto_prototype.menu.opt.ogstd=Debug
+quarto_prototype.menu.opt.ogstd.build.flags.optimize=-Og
+quarto_prototype.menu.opt.ogstd.build.flags.ldspecs=
+
+quarto_prototype.menu.opt.osstd=Smallest Code
+quarto_prototype.menu.opt.osstd.build.flags.optimize=-Os --specs=nano.specs
+quarto_prototype.menu.opt.osstd.build.flags.ldspecs=
+
+quarto_prototype.menu.opt.osstd=No Optimization
+quarto_prototype.menu.opt.osstd.build.flags.optimize=-O0
+quarto_prototype.menu.opt.osstd.build.flags.ldspecs=
