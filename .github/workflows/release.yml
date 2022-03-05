@@ -6,9 +6,7 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches: [ main, beta ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -25,7 +23,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
         with:
-          submodules: 'true'
+          submodules: 'recursive'
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
@@ -44,9 +42,17 @@ jobs:
           echo "VERSION=$VERSION" >>$GITHUB_ENV
           echo '::set-output name=VERSION::$VERSION'
           tar --transform "s,^,imxrt/,S" -cvjf qNimble_iMXRT-$VERSION.tar.bz2 *
-          ls
-          ls qN*
-          
+          echo $GITHUB_REF
+          echo ${{env.VERSION}}
+          echo ${{github.ref}}
+          echo ${{github.ref != 'refs/heads/main'}}
+          if [[ ${{github.ref}} == 'refs/heads/main' ]] ; then 
+             echo "prerelease=false" >> $GITHUB_ENV
+             echo "Prerelease = false"
+          else
+             echo "prerelease=true" >> $GITHUB_ENV
+             echo "Prerelease = true"
+          fi
 
       # make tarball release
       - name: Create Release
@@ -58,6 +64,7 @@ jobs:
             tag_name: ${{env.VERSION}}
             release_name: ${{env.VERSION}}
             body: Release ${{env.VERSION}} of qNimble Board Libraries for Arduino
+            prerelease: ${{env.prerelease}}
       
       - name : Upload file
         uses: svenstaro/upload-release-action@v2
