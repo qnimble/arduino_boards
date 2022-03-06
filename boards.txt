@@ -22,7 +22,11 @@ quarto.build.board=Quarto
 quarto.vid=0x1781
 quarto.pid=0x0941
 
-quarto.upload_port.upload=1
+#quarto.upload_port.upload=1
+quarto.upload.mi=0x00
+quarto.upload_port.vid = 0x1781
+quarto.upload_port.pid = 0x0941
+quarto.upload_port.mi=0x00
 quarto.build.core=imxrt
 quarto.build.mcu=imxrt1062
 quarto.build.variant=quarto
