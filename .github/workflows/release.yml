@@ -45,11 +45,13 @@ jobs:
           echo $GITHUB_REF
           echo ${{env.VERSION}}
           echo ${{github.ref}}
-          echo ${{github.ref != 'ref/heads/main'}}
-          if [[ ${{github.ref}} == 'ref/heads/main' ]] ; then 
+          echo ${{github.ref != 'refs/heads/main'}}
+          if [[ ${{github.ref}} == 'refs/heads/main' ]] ; then 
              echo "prerelease=false" >> $GITHUB_ENV
+             echo "Prerelease = false"
           else
              echo "prerelease=true" >> $GITHUB_ENV
+             echo "Prerelease = true"
           fi
 
       # make tarball release
