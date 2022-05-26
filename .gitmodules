@@ -1,9 +1,12 @@
 [submodule "cores"]
 	path = cores
 	url = https://github.com/qnimble/ArduinoCore-iMXRT.git
+	branch = main
 [submodule "variants/quarto"]
 	path = variants/quarto
 	url = https://github.com/qnimble/quarto-lib.git
+	branch = main
 [submodule "libraries"]
 	path = libraries
 	url = https://github.com/qnimble/arduino-quarto-libraries.git
+	branch = main
