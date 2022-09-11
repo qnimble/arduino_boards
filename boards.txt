@@ -16,6 +16,7 @@ quarto.upload.protocol.qnimble=qnimble
 quarto.upload.protocol.serial=serial
 
 quarto.upload.use_1200pbs_touch=true
+quarto.upload.wait_for_upload_port=true
 quarto.upload.native_usb=true
 
 quarto.build.board=Quarto
