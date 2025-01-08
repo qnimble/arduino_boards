@@ -45,7 +45,7 @@ quarto.build.flags.dep=-MMD
 quarto.build.flags.optimize=-O2
 quarto.build.flags.cpu=-mthumb -mcpu=cortex-m7 -mfloat-abi=hard -mfpu=fpv5-d16
 quarto.build.flags.defs=-D__IMXRT1062__ -DARDUINO_QUARTO -DTEENSYDUINO=1
-quarto.build.flags.cpp=-std=gnu++14 -fno-exceptions -fpermissive -fno-rtti -fno-threadsafe-statics -felide-constructors -Wno-error=narrowing
+quarto.build.flags.cpp=-std=gnu++14 -fno-exceptions -fpermissive -fconcepts -fno-rtti -fno-threadsafe-statics -felide-constructors -Wno-error=narrowing
 quarto.build.flags.c=
 quarto.build.flags.S=-x assembler-with-cpp
 quarto.build.flags.ld=-L{build.core.path} -Wl,--gc-sections,--relax "-T{build.core.path}/quarto_arduino.ld"
