@@ -1,5 +1,5 @@
 name=qNimble
-version=2.2.3
+version=2.3.1
 rewriting=disabled
 
 compiler.path={runtime.tools.arm-none-eabi-gcc.path}/bin/
@@ -16,7 +16,7 @@ recipe.preproc.macros="{compiler.path}{build.toolchain}{build.command.g++}" -E -
 ## New Preprocessor for Arduino 1.9
 tools.arduino-preprocessor.path={runtime.tools.arduino-preprocessor.path}
 tools.arduino-preprocessor.cmd.path={path}/arduino-preprocessor
-tools.arduino-preprocessor.pattern="{cmd.path}" "{source_file}" "{codecomplete}" -- -std=gnu++14
+tools.arduino-preprocessor.pattern="{cmd.path}" "{source_file}" "{codecomplete}" -- -std=gnu++17
 
 ## Precompile Arduino.h header
 #recipe.hooks.sketch.prebuild.1.pattern="{runtime.tools.precompile_helper.path}/precompile_helper" "{runtime.platform.path}/cores/{build.core}" "{build.path}" "{compiler.path}{build.toolchain}{build.command.g++}" -x c++-header {build.flags.optimize} {build.flags.common} {build.flags.dep} {build.flags.cpp} {build.flags.cpu} {build.flags.defs} -I{build.variant.path} -DARDUINO={runtime.ide.version} -DF_CPU={build.fcpu} -D{build.usbtype} -DLAYOUT_{build.keylayout} "-I{runtime.platform.path}/cores/{build.core}" "{build.path}/pch/Arduino.h" -o "{build.path}/pch/Arduino.h.gch"
