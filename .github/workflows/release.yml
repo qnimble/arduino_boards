@@ -58,20 +58,25 @@ jobs:
       # make tarball release
       - name: Create Release
         id: create_release
-        uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-            tag_name: ${{env.VERSION}}
-            release_name: ${{env.VERSION}}
-            body: Release ${{env.VERSION}} of qNimble Board Libraries for Arduino
-            prerelease: ${{env.prerelease}}
-      
+        run: |
+          # Determine prerelease flag if env.prerelease is true/yes
+          if [ "${{ env.prerelease }}" = "true" ] || [ "${{ env.prerelease }}" = "yes" ]; then
+              prerelease_flag="--prerelease"
+          else
+             prerelease_flag=""
+          fi
+
+          gh release create "${{ env.VERSION }}" \
+            --title "${{ env.VERSION }}" \
+            --notes "Release ${{ env.VERSION }} of qNimble Board Libraries for Arduino" \
+            $prerelease_flag
       - name : Upload file
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: qNimble_iMXRT-${{env.VERSION}}.tar.bz2      
+          file: qNimble_iMXRT-${{env.VERSION}}.tar.bz2
           tag: ${{ env.VERSION }}
           overwrite: true
           body: "Release ${{env.VERSION}} of qNimble Board Libraries for Arduino"
